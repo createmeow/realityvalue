@@ -45,7 +45,7 @@ public class PlayerExHudRenderer {
         RenderSystem.setShaderTexture(0, PLAYER_EX_ICONS);
 
         int left = (guiGraphics.guiWidth() / 2) - 91;
-        int top = guiGraphics.guiHeight() - Minecraft.getInstance().gui.rightHeight - 10;
+        int top = guiGraphics.guiHeight() - Minecraft.getInstance().gui.leftHeight;
 
         int fullHealthIcons = health / 2;
         int hasHalfHealthIcon = health % 2;
@@ -62,6 +62,9 @@ public class PlayerExHudRenderer {
                 guiGraphics.blit(PLAYER_EX_ICONS, x, y, 18, 0, 5, 9, 27, 18);
             }
         }
+
+        // Increase leftHeight AFTER rendering so other left-side overlays get pushed up
+        Minecraft.getInstance().gui.leftHeight += 10;
 
         RenderSystem.disableBlend();
     }

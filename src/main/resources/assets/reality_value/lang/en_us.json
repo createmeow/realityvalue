@@ -1,11 +1,11 @@
 {
-  "cap.reality_value.health.tip.low": "[!]You are sick. Please quickly restore your health using items like herbs and bandages.",
-  "cap.reality_value.sanity.tip.low": "[!]You are on the verge of a mental breakdown, please restore your sanity through activities such as fishing and flower picking as soon as possible",
-  "cap.reality_value.sanity.low.0": "§8[§4!§8] §4So... tired...",
-  "cap.reality_value.sanity.low.1": "§8[§4!§8] §4Why! Why does this happen to me",
-  "cap.reality_value.sanity.low.2": "§8[§4!§8] §4Everything is meaningless...",
-  "cap.reality_value.sanity.low.3": "§8[§4!§8] §4I've had enough...",
-  "cap.reality_value.sanity.low.4": "§8[§4!§8] §4Living is so painful...",
+  "cap.reality_value.health.tip.low": "§8[§4!§8] §4You are sick. Please quickly restore your health using items like herbs and bandages.",
+  "cap.reality_value.sanity.tip.low": "§8[§4!§8] §4You are on the verge of a mental breakdown, please restore your sanity through activities such as fishing and flower picking as soon as possible",
+  "cap.reality_value.sanity.low.0": "§4So... tired...",
+  "cap.reality_value.sanity.low.1": "§4Why! Why does this happen to me",
+  "cap.reality_value.sanity.low.2": "§4Everything is meaningless...",
+  "cap.reality_value.sanity.low.3": "§4I've had enough...",
+  "cap.reality_value.sanity.low.4": "§4Living is so painful...",
   "create_tab.reality_value.all": "Reality Value",
 
   "item.reality_value.antibiotics": "Antibiotics",
@@ -20,6 +20,6 @@
   "tooltip.reality_value.bandage": "Crafted from herbs and tattered cloth. Right-click to use, restores 4 HP and 1-3 wellness.",
   "tooltip.reality_value.tattered_cloth": "Right-click to use, restores 2-4 HP without restoring wellness.",
   "tooltip.reality_value.antibiotics": "1% chance to drop from breaking moss blocks. Right-click to use, restores 8 HP and 4-7 wellness.",
-  "tooltip.reality_value.rum": "Right-click to eat, restores 6-14 sanity and 3-6 thirst.\n§8§oDo not imitate in real life",
+  "tooltip.reality_value.rum": "Right-click to eat, restores 6-14 sanity and 3-6 thirst.",
   "tooltip.reality_value.first_aid_injection": "Right-click to use, fully restores HP and recovers 10 wellness."
 }
