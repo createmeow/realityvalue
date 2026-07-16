@@ -24,7 +24,6 @@
 
 ### 口渴系统
 - 联动 [ThirstWasTaken](https://www.curseforge.com/minecraft/mc-mods/thirst-was-taken) 模组
-- 玩家拥有口渴值（0-20）
 - 朗姆酒可恢复口渴值
 
 ## 物品
