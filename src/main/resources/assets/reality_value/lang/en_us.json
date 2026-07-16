@@ -1,6 +1,11 @@
 {
   "cap.reality_value.health.tip.low": "[!]You are sick. Please quickly restore your health using items like herbs and bandages.",
   "cap.reality_value.sanity.tip.low": "[!]You are on the verge of a mental breakdown, please restore your sanity through activities such as fishing and flower picking as soon as possible",
+  "cap.reality_value.sanity.low.0": "§8[§4!§8] §4So... tired...",
+  "cap.reality_value.sanity.low.1": "§8[§4!§8] §4Why! Why does this happen to me",
+  "cap.reality_value.sanity.low.2": "§8[§4!§8] §4Everything is meaningless...",
+  "cap.reality_value.sanity.low.3": "§8[§4!§8] §4I've had enough...",
+  "cap.reality_value.sanity.low.4": "§8[§4!§8] §4Living is so painful...",
   "create_tab.reality_value.all": "Reality Value",
 
   "item.reality_value.antibiotics": "Antibiotics",

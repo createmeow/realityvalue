@@ -17,9 +17,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -203,28 +201,18 @@ public class PlayerExCap {
                 sanityMsgTick = 0;
                 serverPlayer.sendSystemMessage(Component.translatable("cap.reality_value.sanity.tip.low"));
             } else sanityMsgTick++;
-            // 低理智 + 手持剑/斧 → 每10~50秒1点伤害 + 负面消息
-            if (sanityWeaponDamageTick >= serverPlayer.getRandom().nextInt(200, 1000)) {
-                sanityWeaponDamageTick = 0;
-                boolean holdingWeapon = false;
-                var mainItem = serverPlayer.getMainHandItem().getItem();
-                var offItem = serverPlayer.getOffhandItem().getItem();
-                if (mainItem instanceof SwordItem || mainItem instanceof AxeItem
-                        || offItem instanceof SwordItem || offItem instanceof AxeItem) {
-                    holdingWeapon = true;
-                }
-                if (holdingWeapon) {
-                    serverPlayer.hurt(serverPlayer.damageSources().generic(), 1.0f);
-                    String[] messages = {
-                            "§8[§4!§8] §4好…累…",
-                            "§8[§4!§8] §4为什么！为什么要这样对我",
-                            "§8[§4!§8] §4一切都毫无意义…",
-                            "§8[§4!§8] §4我受够了…",
-                            "§8[§4!§8] §4活着好痛苦…"
-                    };
-                    serverPlayer.sendSystemMessage(Component.literal(messages[serverPlayer.getRandom().nextInt(messages.length)]));
-                }
-            } else sanityWeaponDamageTick++;
+            // 低理智情绪低落消息（仅理智<4时触发）
+            if (getSanity() < 4) {
+                if (sanityWeaponDamageTick >= serverPlayer.getRandom().nextInt(200, 1000)) {
+                    sanityWeaponDamageTick = 0;
+                    // 动作栏显示随机情绪低落消息
+                    int msgIndex = serverPlayer.getRandom().nextInt(5);
+                    serverPlayer.displayClientMessage(
+                            Component.translatable("cap.reality_value.sanity.low." + msgIndex),
+                            true
+                    );
+                } else sanityWeaponDamageTick++;
+            }
         }
         if (sanityCheckBlockTickS >= 4) {
             sanityCheckBlockTickS = 0;
