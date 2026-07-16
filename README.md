@@ -1,6 +1,6 @@
 # RealityValue - 真实的值
 
-一个为 Minecraft 添加健康、理智、口渴系统的 NeoForge 模组。
+一个为 Minecraft 添加健康、理智系统的 NeoForge 模组。
 
 ## 功能介绍
 
