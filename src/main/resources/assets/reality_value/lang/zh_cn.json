@@ -1,0 +1,20 @@
+{
+  "cap.reality_value.health.tip.low": "§8[§4!§8] §4你生病了，赶紧请尽快通过药草、绷带类等物品恢复健康值",
+  "cap.reality_value.sanity.tip.low": "§8[§4!§8] §4你精神几近奔溃，请尽快通过钓鱼、采花等活动恢复理智",
+  "create_tab.reality_value.all": "真实的值",
+
+  "item.reality_value.antibiotics": "抗生素",
+  "item.reality_value.herb": "草药",
+  "item.reality_value.bandage": "绷带",
+  "item.reality_value.tattered_cloth": "破碎布料",
+
+  "item.reality_value.rum": "朗姆酒",
+  "item.reality_value.first_aid_injection": "急救针",
+
+  "tooltip.reality_value.herb": "破坏草类（草丛、高草丛、蕨、大型蕨）有15%概率掉落，右键使用后恢复2点血量和0~1点健康。",
+  "tooltip.reality_value.bandage": "通过草药和破碎布料合成，右键使用后恢复4点血量和1~3点健康。",
+  "tooltip.reality_value.tattered_cloth": "右键使用后恢复2~4点生命值，不恢复健康。",
+  "tooltip.reality_value.antibiotics": "破坏苔藓类方块有1%的几率掉落，右键使用后恢复8点血量和4~7点健康。",
+  "tooltip.reality_value.rum": "右键食用后恢复6~14点理智和3~6点口渴值\n§8§o请勿在现实中模仿",
+  "tooltip.reality_value.first_aid_injection": "右键使用后直接回满生命值，并恢复10点健康。"
+}

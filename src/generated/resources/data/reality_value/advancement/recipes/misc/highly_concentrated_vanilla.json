@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "reality_value:highly_concentrated_vanilla"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanilla": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reality_value:vanilla"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vanilla"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "reality_value:highly_concentrated_vanilla"
+    ]
+  }
+}

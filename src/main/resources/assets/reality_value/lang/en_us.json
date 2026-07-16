@@ -1,0 +1,20 @@
+{
+  "cap.reality_value.health.tip.low": "[!]You are sick. Please quickly restore your health using items like herbs and bandages.",
+  "cap.reality_value.sanity.tip.low": "[!]You are on the verge of a mental breakdown, please restore your sanity through activities such as fishing and flower picking as soon as possible",
+  "create_tab.reality_value.all": "Reality Value",
+
+  "item.reality_value.antibiotics": "Antibiotics",
+  "item.reality_value.herb": "Herb",
+  "item.reality_value.bandage": "Bandage",
+  "item.reality_value.tattered_cloth": "Tattered Cloth",
+
+  "item.reality_value.rum": "Rum",
+  "item.reality_value.first_aid_injection": "First Aid Injection",
+
+  "tooltip.reality_value.herb": "15% chance to drop from breaking grass. Right-click to use, restores 2 HP and 0-1 wellness.",
+  "tooltip.reality_value.bandage": "Crafted from herbs and tattered cloth. Right-click to use, restores 4 HP and 1-3 wellness.",
+  "tooltip.reality_value.tattered_cloth": "Right-click to use, restores 2-4 HP without restoring wellness.",
+  "tooltip.reality_value.antibiotics": "1% chance to drop from breaking moss blocks. Right-click to use, restores 8 HP and 4-7 wellness.",
+  "tooltip.reality_value.rum": "Right-click to eat, restores 6-14 sanity and 3-6 thirst.\n§8§oDo not imitate in real life",
+  "tooltip.reality_value.first_aid_injection": "Right-click to use, fully restores HP and recovers 10 wellness."
+}

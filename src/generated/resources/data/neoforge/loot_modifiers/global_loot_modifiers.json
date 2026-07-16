@@ -1,0 +1,12 @@
+{
+  "entries": [
+    "reality_value:epinephrine_from_zombie",
+    "reality_value:tattered_cloth_from_zombie",
+    "reality_value:stimulant_from_zombie",
+    "reality_value:moss_block_drop_replace",
+    "reality_value:moss_carpet_drop_replace",
+    "reality_value:herb_drop_from_grass",
+    "reality_value:vanilla_drop_from_grass"
+  ],
+  "replace": false
+}

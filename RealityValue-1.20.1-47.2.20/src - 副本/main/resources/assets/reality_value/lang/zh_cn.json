@@ -1,0 +1,28 @@
+{
+  "cap.reality_value.health.tip.low": "§8[§4!§8] §4你生病了，赶紧请尽快通过药草、绷带类等物品恢复健康值",
+  "cap.reality_value.sanity.tip.low": "§8[§4!§8] §4你精神几近奔溃，请尽快通过钓鱼、采花等活动恢复理智",
+  "create_tab.reality_value.all": "真实的值",
+
+  "item.reality_value.epinephrine": "肾上腺素",
+  "item.reality_value.antibiotics": "抗生素",
+  "item.reality_value.herb": "草药",
+  "item.reality_value.bandage": "绷带",
+  "item.reality_value.tattered_cloth": "破碎布料",
+
+
+  "item.reality_value.stimulant": "兴奋剂",
+  "item.reality_value.high_sugar_chocolate": "高糖巧克力",
+  "item.reality_value.vanilla": "香草",
+  "item.reality_value.highly_concentrated_vanilla": "高浓度香草",
+
+  "tooltip.reality_value.herb": "破坏草类（草丛、高草丛、蕨、大型蕨）有15%概率掉落，食用后恢复2点血量和0~1点健康。",
+  "tooltip.reality_value.bandage": "通过草药和破碎布料合成，食用后恢复4点血量和1~3点健康。",
+  "tooltip.reality_value.stimulant": "击杀僵尸有0.5%概率掉落，食用后恢复1~3理智\n§8§o请勿在现实中模仿",
+  "tooltip.reality_value.high_sugar_chocolate": "恢复7理智，损失3健康，获得缓慢2 2分钟\n§8§o这种东西吃了会胖，影响健康",
+  "effect.reality_value.side_of_epinephrine": "肾上腺素副作用",
+  "effect.reality_value.side_of_antibiotics": "抗生素副作用",
+  "tooltip.reality_value.antibiotics": "破坏苔藓类方块有1%的几率掉落，食用后恢复8点血量和4~7点健康，使用后获得对应的副作用30秒。",
+  "tooltip.reality_value.epinephrine": "击杀僵尸后有0.1%的概率掉落，食用后恢复16点血量和5~9点健康，使用后获得对应的副作用1分钟。",
+  "tooltip.reality_value.highly_concentrated_vanilla": "食用后恢复2~5点理智",
+  "tooltip.reality_value.vanilla": "破坏草类（草丛、高草丛、蕨、大型蕨）有5%概率掉落，食用后恢复2点血量和0~1点理智。"
+}

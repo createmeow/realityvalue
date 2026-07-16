@@ -1,0 +1,14 @@
+{
+  "type": "reality_value:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:entities/zombie"
+    },
+    {
+      "chance": 0.005,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "reality_value:stimulant"
+}

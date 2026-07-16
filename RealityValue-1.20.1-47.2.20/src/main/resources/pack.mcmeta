@@ -1,0 +1,8 @@
+{
+  "pack": {
+    "description": {
+      "text": "${mod_id} 模组资源"
+    },
+    "pack_format": 15
+  }
+}

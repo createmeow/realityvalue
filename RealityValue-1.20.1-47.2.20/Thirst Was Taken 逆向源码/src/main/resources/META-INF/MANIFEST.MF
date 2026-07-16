@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: thirst
+Specification-Vendor: thirstsareus
+Specification-Version: 1
+Implementation-Title: ThirstWasTaken
+Implementation-Version: 1.20.1-1.4.0
+Implementation-Vendor: thirstsareus
+Implementation-Timestamp: 2025-06-17T16:45:11+0800
+MixinConfigs: thirst.mixin.json
+

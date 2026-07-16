@@ -1,0 +1,51 @@
+package de.keksuccino.fancymenu.customization.element.elements.image;
+
+import de.keksuccino.fancymenu.customization.element.AbstractElement;
+import de.keksuccino.fancymenu.customization.element.ElementBuilder;
+import de.keksuccino.fancymenu.customization.element.SerializedElement;
+import de.keksuccino.fancymenu.customization.layout.editor.LayoutEditorScreen;
+import de.keksuccino.fancymenu.util.LocalizationUtils;
+import net.minecraft.network.chat.Component;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public class ImageElementBuilder extends ElementBuilder<ImageElement, ImageEditorElement> {
+
+    public ImageElementBuilder() {
+        super("image");
+    }
+
+    @Override
+    public @NotNull ImageElement buildDefaultInstance() {
+        ImageElement element = new ImageElement(this);
+        element.baseWidth = 100;
+        element.baseHeight = 100;
+        return element;
+    }
+
+    @Override
+    public ImageElement deserializeElement(@NotNull SerializedElement serialized) {
+        return this.buildDefaultInstance();
+    }
+
+    @Override
+    protected SerializedElement serializeElement(@NotNull ImageElement element, @NotNull SerializedElement serializeTo) {
+        return serializeTo;
+    }
+
+    @Override
+    public @NotNull ImageEditorElement wrapIntoEditorElement(@NotNull ImageElement element, @NotNull LayoutEditorScreen editor) {
+        return new ImageEditorElement(element, editor);
+    }
+
+    @Override
+    public @NotNull Component getDisplayName(@Nullable AbstractElement element) {
+        return Component.translatable("fancymenu.elements.image");
+    }
+
+    @Override
+    public @Nullable Component[] getDescription(@Nullable AbstractElement element) {
+        return LocalizationUtils.splitLocalizedLines("fancymenu.elements.image.desc");
+    }
+
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reality_value:herb"
+    },
+    {
+      "item": "reality_value:tattered_cloth"
+    }
+  ],
+  "result": {
+    "item": "reality_value:bandage"
+  }
+}

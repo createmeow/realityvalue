@@ -1,0 +1,32 @@
+{
+  "type": "reality_value:replace_item",
+  "conditions": [
+    {
+      "condition": "reality_value:match_block_tag",
+      "tag": "reality_value:grass"
+    },
+    {
+      "chance": 0.005,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "predicates": {
+            "minecraft:enchantments": [
+              {
+                "enchantments": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "item": "reality_value:vanilla"
+}

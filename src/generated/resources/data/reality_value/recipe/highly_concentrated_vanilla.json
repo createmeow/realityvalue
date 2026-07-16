@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    },
+    {
+      "item": "reality_value:vanilla"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reality_value:highly_concentrated_vanilla"
+  }
+}

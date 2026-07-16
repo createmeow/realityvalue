@@ -1,0 +1,14 @@
+{
+  "type": "reality_value:replace_item",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:blocks/moss_block"
+    },
+    {
+      "chance": 0.01,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "reality_value:antibiotics"
+}
