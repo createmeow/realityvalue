@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "reality_value:item/high_sugar_chocolate"
-  }
-}
