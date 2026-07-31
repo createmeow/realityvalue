@@ -62,19 +62,18 @@
 以下物品使用后可恢复 3~4 点理智：
 
 - 巧克力（Bar of Chocolate）
-- 巧克力覆层浆果（Chocolate Glazed Berries）
-- 建筑者茶饮（Builder's Tea）
+- 巧克力包层浆果（Chocolate Glazed Berries）
+- 建筑工茶饮（Builder's Tea）
 - 蜂蜜苹果（Honeyed Apple）
 - 甜甜卷（Sweet Roll）
 
 ### Farmer's Delight
 
-所有食物与饮品使用后可恢复 3~6 点理智。
+所有**真正的菜品**使用后可恢复 3~6 点理智。
 
-以下物品被排除：
+判断依据为 Farmer's Delight 官方物品标签：`meals`（碗装/盘装菜品）、`drinks`（饮品）、`sweets`（甜点）、`snacks`（小吃）。
 
-- 狗粮、马食；
-- 作物及原材料（卷心菜、番茄、洋葱、水稻、种子、野生作物、稻草等）。
+- 因此生食材（卷心菜、番茄、洋葱、水稻等）、种子、野生作物、稻草、狗粮、马食等**不会**恢复理智。
 
 ### ThirstWasTaken
 

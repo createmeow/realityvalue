@@ -6,12 +6,15 @@ import dev.anye.mc.reality_value.cap.PlayerExCap;
 import dev.anye.mc.reality_value.config.PlaceBlockList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,7 +33,6 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.slf4j.Logger;
 
 import java.util.Set;
-import java.util.HashSet;
 
 @EventBusSubscriber(modid = RealityValue.MOD_ID)
 public class ForgeEvent {
@@ -45,33 +47,15 @@ public class ForgeEvent {
             "create:sweet_roll"
     );
 
-    // FarmersDelight 排除的物品（狗粮、马食、作物类）
-    private static final Set<String> FD_EXCLUDED_ITEMS = Set.of(
-            "farmersdelight:dog_food",
-            "farmersdelight:horse_feed",
-            // 作物及其变种
-            "farmersdelight:cabbage",
-            "farmersdelight:tomato",
-            "farmersdelight:onion",
-            "farmersdelight:rice",
-            "farmersdelight:rice_panicle",
-            // 作物种子
-            "farmersdelight:cabbage_seeds",
-            "farmersdelight:tomato_seeds",
-            "farmersdelight:rice_seeds",
-            // 野生作物
-            "farmersdelight:wild_cabbages",
-            "farmersdelight:wild_tomatoes",
-            "farmersdelight:wild_onions",
-            "farmersdelight:wild_carrots",
-            "farmersdelight:wild_potatoes",
-            "farmersdelight:wild_beetroots",
-            "farmersdelight:wild_rice",
-            // 其他原材料
-            "farmersdelight:straw",
-            "farmersdelight:tree_bark",
-            "farmersdelight:rotten_tomato"
-    );
+    // FarmersDelight 菜品标签（meals/drinks/sweets/snacks）
+    private static final TagKey<Item> FD_MEALS = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("farmersdelight", "meals"));
+    private static final TagKey<Item> FD_DRINKS = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("farmersdelight", "drinks"));
+    private static final TagKey<Item> FD_SWEETS = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("farmersdelight", "sweets"));
+    private static final TagKey<Item> FD_SNACKS = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("farmersdelight", "snacks"));
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
@@ -132,14 +116,9 @@ public class ForgeEvent {
                 cap.addSanity(player.getRandom().nextInt(3, 5), player);
             }
 
-            // 联动 FarmersDelight 模组：菜品恢复 3~6 点理智（排除狗粮、马食、作物类）
-            if (itemId != null && itemId.startsWith("farmersdelight:") && !FD_EXCLUDED_ITEMS.contains(itemId)) {
-                // 检查是否有食物属性 或 是饮品类型
-                boolean isFood = event.getItem().getItem().components().get(DataComponents.FOOD) != null;
-                boolean isDrink = isFarmersDelightDrink(event.getItem());
-                if (isFood || isDrink) {
-                    cap.addSanity(player.getRandom().nextInt(3, 7), player);
-                }
+            // 联动 FarmersDelight 模组：通过其菜品标签判断，仅真正的菜品恢复 3~6 点理智
+            if (isFarmersDelightDish(event.getItem())) {
+                cap.addSanity(player.getRandom().nextInt(3, 7), player);
             }
 
             PlayerExCap.save(player, cap);
@@ -158,15 +137,13 @@ public class ForgeEvent {
     }
 
     /**
-     * 检查物品是否是 FarmersDelight 的饮品类型
+     * 检查物品是否是 FarmersDelight 菜品（通过官方标签 meals/drinks/sweets/snacks 判断）
      */
-    private static boolean isFarmersDelightDrink(ItemStack stack) {
-        try {
-            Class<?> drinkableClass = Class.forName("vectorwing.farmersdelight.common.item.DrinkableItem");
-            return drinkableClass.isInstance(stack.getItem());
-        } catch (Exception ignored) {
-            return false;
-        }
+    private static boolean isFarmersDelightDish(ItemStack stack) {
+        return stack.is(FD_MEALS)
+                || stack.is(FD_DRINKS)
+                || stack.is(FD_SWEETS)
+                || stack.is(FD_SNACKS);
     }
 
     @SubscribeEvent
