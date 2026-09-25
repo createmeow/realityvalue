@@ -15,10 +15,25 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class HerbItem extends Item {
+public class HerbItem extends Item implements IExValueItem {
 
     public HerbItem() {
         super(new Properties().stacksTo(32));
+    }
+
+    @Override
+    public float healAmount() {
+        return 2f;
+    }
+
+    @Override
+    public int[] healthRestore() {
+        return new int[]{0, 1};
+    }
+
+    @Override
+    public int[] immunityRestore() {
+        return new int[]{0, 1};
     }
 
     @Override
@@ -41,9 +56,7 @@ public class HerbItem extends Item {
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
         if (pLivingEntity instanceof ServerPlayer serverPlayer) {
             pStack.shrink(1);
-            serverPlayer.heal(2f);
-            PlayerExCap cap = PlayerExCap.get(serverPlayer);
-            cap.addHealth(serverPlayer.getRandom().nextInt(0, 2), serverPlayer);
+            applyExRestore(serverPlayer);
             return pStack;
         }
         return super.finishUsingItem(pStack, pLevel, pLivingEntity);

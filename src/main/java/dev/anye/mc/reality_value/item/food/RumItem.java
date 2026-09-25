@@ -18,13 +18,23 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class RumItem extends Item {
+public class RumItem extends Item implements IExValueItem {
 
     public RumItem() {
         super(new Properties().stacksTo(16).rarity(Rarity.RARE)
                 .food(new FoodProperties.Builder()
                         .alwaysEdible()
                         .build()));
+    }
+
+    @Override
+    public int[] sanityRestore() {
+        return new int[]{6, 14};
+    }
+
+    @Override
+    public int[] energyRestore() {
+        return new int[]{6, 14};
     }
 
     @Override
@@ -47,8 +57,8 @@ public class RumItem extends Item {
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
         if (pLivingEntity instanceof ServerPlayer serverPlayer) {
             pStack.shrink(1);
+            applyExRestore(serverPlayer);
             PlayerExCap cap = PlayerExCap.get(serverPlayer);
-            cap.addSanity(serverPlayer.getRandom().nextInt(6, 15), serverPlayer);
             cap.addThirst(serverPlayer.getRandom().nextInt(3, 7), serverPlayer);
 
             // 联动 ThirstWasTaken（可选软依赖）

@@ -1,6 +1,5 @@
 package dev.anye.mc.reality_value.item.food;
 
-import dev.anye.mc.reality_value.cap.PlayerExCap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -16,10 +15,25 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class BandageItem extends Item {
+public class BandageItem extends Item implements IExValueItem {
 
     public BandageItem() {
         super(new Properties().stacksTo(16).rarity(Rarity.UNCOMMON));
+    }
+
+    @Override
+    public float healAmount() {
+        return 4f;
+    }
+
+    @Override
+    public int[] healthRestore() {
+        return new int[]{1, 3};
+    }
+
+    @Override
+    public int[] immunityRestore() {
+        return new int[]{1, 3};
     }
 
     @Override
@@ -37,9 +51,7 @@ public class BandageItem extends Item {
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
         if (pLivingEntity instanceof ServerPlayer serverPlayer) {
             pStack.shrink(1);
-            serverPlayer.heal(4f);
-            PlayerExCap cap = PlayerExCap.get(serverPlayer);
-            cap.addHealth(serverPlayer.getRandom().nextInt(1, 4), serverPlayer);
+            applyExRestore(serverPlayer);
             return pStack;
         }
         return super.finishUsingItem(pStack, pLevel, pLivingEntity);

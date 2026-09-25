@@ -41,7 +41,9 @@ public class RealityValue {
                 Messages.ExDataPayload.TYPE,
                 Messages.ExDataPayload.STREAM_CODEC,
                 (payload, context) -> {
-                    dev.anye.mc.reality_value.cap.ClientPlayerExData.set(payload.health(), payload.sanity(), payload.thirst());
+                    dev.anye.mc.reality_value.cap.ClientPlayerExData.set(
+                            payload.health(), payload.sanity(), payload.thirst(),
+                            payload.energy(), payload.immunity());
                 });
     }
 }

@@ -48,7 +48,29 @@ public class RealityValueCommand {
                                                 .executes(RealityValueCommand::executeSanityRemove)))
                                 .then(Commands.literal("set")
                                         .then(Commands.argument("amount", IntegerArgumentType.integer())
-                                                .executes(RealityValueCommand::executeSanitySet)))));
+                                                .executes(RealityValueCommand::executeSanitySet)))))
+                .then(Commands.literal("energy")
+                        .then(Commands.argument("targets", EntityArgument.players())
+                                .then(Commands.literal("add")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeEnergyAdd)))
+                                .then(Commands.literal("rm")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeEnergyRemove)))
+                                .then(Commands.literal("set")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeEnergySet)))))
+                .then(Commands.literal("immunity")
+                        .then(Commands.argument("targets", EntityArgument.players())
+                                .then(Commands.literal("add")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeImmunityAdd)))
+                                .then(Commands.literal("rm")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeImmunityRemove)))
+                                .then(Commands.literal("set")
+                                        .then(Commands.argument("amount", IntegerArgumentType.integer())
+                                                .executes(RealityValueCommand::executeImmunitySet)))));
 
         dispatcher.register(command);
     }
@@ -122,6 +144,82 @@ public class RealityValueCommand {
 
         context.getSource().sendSuccess(
                 () -> Component.literal("Modified sanity for " + players.size() + " players"), true);
+        return players.size();
+    }
+
+    // ==================== 精力 ====================
+
+    private static int executeEnergyAdd(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        return executeEnergy(context, IntegerArgumentType.getInteger(context, "amount"));
+    }
+
+    private static int executeEnergyRemove(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        return executeEnergy(context, -IntegerArgumentType.getInteger(context, "amount"));
+    }
+
+    private static int executeEnergySet(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        Collection<ServerPlayer> players = EntityArgument.getPlayers(context, "targets");
+        int amount = IntegerArgumentType.getInteger(context, "amount");
+
+        for (ServerPlayer player : players) {
+            PlayerExCap cap = PlayerExCap.get(player);
+            cap.setEnergy(amount, player);
+        }
+
+        context.getSource().sendSuccess(
+                () -> Component.literal("Set energy for " + players.size() + " players"), true);
+        return players.size();
+    }
+
+    private static int executeEnergy(CommandContext<CommandSourceStack> context, int amount)
+            throws CommandSyntaxException {
+        Collection<ServerPlayer> players = EntityArgument.getPlayers(context, "targets");
+
+        for (ServerPlayer player : players) {
+            PlayerExCap cap = PlayerExCap.get(player);
+            cap.addEnergy(amount, player);
+        }
+
+        context.getSource().sendSuccess(
+                () -> Component.literal("Modified energy for " + players.size() + " players"), true);
+        return players.size();
+    }
+
+    // ==================== 免疫力 ====================
+
+    private static int executeImmunityAdd(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        return executeImmunity(context, IntegerArgumentType.getInteger(context, "amount"));
+    }
+
+    private static int executeImmunityRemove(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        return executeImmunity(context, -IntegerArgumentType.getInteger(context, "amount"));
+    }
+
+    private static int executeImmunitySet(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        Collection<ServerPlayer> players = EntityArgument.getPlayers(context, "targets");
+        int amount = IntegerArgumentType.getInteger(context, "amount");
+
+        for (ServerPlayer player : players) {
+            PlayerExCap cap = PlayerExCap.get(player);
+            cap.setImmunity(amount, player);
+        }
+
+        context.getSource().sendSuccess(
+                () -> Component.literal("Set immunity for " + players.size() + " players"), true);
+        return players.size();
+    }
+
+    private static int executeImmunity(CommandContext<CommandSourceStack> context, int amount)
+            throws CommandSyntaxException {
+        Collection<ServerPlayer> players = EntityArgument.getPlayers(context, "targets");
+
+        for (ServerPlayer player : players) {
+            PlayerExCap cap = PlayerExCap.get(player);
+            cap.addImmunity(amount, player);
+        }
+
+        context.getSource().sendSuccess(
+                () -> Component.literal("Modified immunity for " + players.size() + " players"), true);
         return players.size();
     }
 }

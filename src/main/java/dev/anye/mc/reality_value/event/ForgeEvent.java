@@ -47,6 +47,20 @@ public class ForgeEvent {
             "create:sweet_roll"
     );
 
+    // 生食列表：食用这些物品会降低免疫力
+    private static final Set<String> RAW_FOOD_PENALTY = Set.of(
+            "minecraft:beef",
+            "minecraft:chicken",
+            "minecraft:porkchop",
+            "minecraft:mutton",
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:rotten_flesh",
+            "minecraft:spider_eye",
+            "minecraft:pufferfish",
+            "minecraft:poisonous_potato"
+    );
+
     // FarmersDelight 菜品标签（meals/drinks/sweets/snacks）
     private static final TagKey<Item> FD_MEALS = TagKey.create(Registries.ITEM,
             ResourceLocation.fromNamespaceAndPath("farmersdelight", "meals"));
@@ -119,6 +133,13 @@ public class ForgeEvent {
             // 联动 FarmersDelight 模组：通过其菜品标签判断，仅真正的菜品恢复 3~6 点理智
             if (isFarmersDelightDish(event.getItem())) {
                 cap.addSanity(player.getRandom().nextInt(3, 7), player);
+            }
+
+            // 生食惩罚：食用生肉/腐肉降低免疫力与理智
+            String foodId = getItemId(event.getItem());
+            if (foodId != null && RAW_FOOD_PENALTY.contains(foodId)) {
+                cap.addImmunity(-player.getRandom().nextInt(1, 3), player);
+                cap.addSanity(-player.getRandom().nextInt(1, 3), player);
             }
 
             PlayerExCap.save(player, cap);

@@ -1,7 +1,6 @@
 package dev.anye.mc.reality_value.net;
 
 import dev.anye.mc.reality_value.RealityValue;
-import dev.anye.mc.reality_value.cap.ClientPlayerExData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -15,7 +14,8 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 public class Messages {
 
-    public record ExDataPayload(int health, int sanity, int thirst) implements CustomPacketPayload {
+    public record ExDataPayload(int health, int sanity, int thirst,
+                                int energy, int immunity) implements CustomPacketPayload {
         public static final Type<ExDataPayload> TYPE = new Type<>(
                 ResourceLocation.fromNamespaceAndPath(RealityValue.MOD_ID, "ex_data"));
 
@@ -23,6 +23,8 @@ public class Messages {
                 ByteBufCodecs.VAR_INT, ExDataPayload::health,
                 ByteBufCodecs.VAR_INT, ExDataPayload::sanity,
                 ByteBufCodecs.VAR_INT, ExDataPayload::thirst,
+                ByteBufCodecs.VAR_INT, ExDataPayload::energy,
+                ByteBufCodecs.VAR_INT, ExDataPayload::immunity,
                 ExDataPayload::new);
 
         @Override

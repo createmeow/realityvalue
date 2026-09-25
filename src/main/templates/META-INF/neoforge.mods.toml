@@ -25,3 +25,10 @@ config="${mod_id}.mixins.json"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="appleskin"
+    type="optional"
+    versionRange="[1.21.1,)"
+    ordering="AFTER"
+    side="CLIENT"

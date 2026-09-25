@@ -14,11 +14,16 @@ public class ClientPlayerExData {
     private static final ResourceLocation PlayerExDataImage_Sanity_Full = ResourceLocation.fromNamespaceAndPath(RealityValue.MOD_ID, "textures/cap/player_ex/sanity_full.png");
     private static final ResourceLocation PlayerExDataImage_Sanity_Empty = ResourceLocation.fromNamespaceAndPath(RealityValue.MOD_ID, "textures/cap/player_ex/sanity_empty.png");
     private static int health, sanity, thirst;
+    // 精力=理智的饱和度，免疫力=健康的饱和度
+    private static int energy, immunity;
 
-    public static void set(int newHealth, int newSanity, int newThirst) {
+    public static void set(int newHealth, int newSanity, int newThirst,
+                           int newEnergy, int newImmunity) {
         health = newHealth;
         sanity = newSanity;
         thirst = newThirst;
+        energy = newEnergy;
+        immunity = newImmunity;
     }
 
     public static int getHealth() {
@@ -31,6 +36,14 @@ public class ClientPlayerExData {
 
     public static int getThirst() {
         return thirst;
+    }
+
+    public static int getEnergy() {
+        return energy;
+    }
+
+    public static int getImmunity() {
+        return immunity;
     }
 
     public static void render(GuiGraphics guiGraphics, int x, int y, float partialTick) {
