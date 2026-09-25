@@ -1,6 +1,12 @@
 {
   "cap.reality_value.health.tip.low": "§8[§4!§8] §4你生病了，赶紧请尽快通过药草、绷带类等物品恢复健康值",
   "cap.reality_value.sanity.tip.low": "§8[§4!§8] §4你精神几近奔溃，请尽快通过钓鱼、采花等活动恢复理智",
+  "cap.reality_value.energy.tip.low": "§8[§6!§8] §6你精力不足，请通过进食或休息恢复精力值",
+  "cap.reality_value.immunity.tip.low": "§8[§2!§8] §2你免疫力低下，请通过金苹果、蜂蜜等物品恢复免疫力",
+  "tooltip.reality_value.health": "健康 %s",
+  "tooltip.reality_value.immunity": "免疫力 %s",
+  "tooltip.reality_value.sanity": "理智 %s",
+  "tooltip.reality_value.energy": "精力 %s",
   "cap.reality_value.sanity.low.0": "§4好…累…",
   "cap.reality_value.sanity.low.1": "§4为什么！为什么要这样对我",
   "cap.reality_value.sanity.low.2": "§4一切都毫无意义…",

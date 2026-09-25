@@ -28,6 +28,13 @@ sourceSets.main.resources {
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 base {
@@ -125,6 +132,11 @@ dependencies {
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
+    // AppleSkin：编译期引用其 ModConfig 配置开关实现联动（ThirstWasTaken 同款方式）
+    // 运行时为可选依赖，玩家未安装时通过 ModList.isLoaded 守卫
+    compileOnly "maven.modrinth:appleskin:3.0.9+mc1.21"
+    localRuntime "maven.modrinth:appleskin:3.0.9+mc1.21"
+
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
@@ -155,7 +167,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_authors            : mod_authors,
-            mod_description        : '为游戏添加了两种不同的值！',
+            mod_description        : '为游戏添加了健康、理智、口渴、精力、免疫力等多种属性值，仿照原版饱和度机制，兼容AppleSkin',
     ]
     inputs.properties replaceProperties
     expand replaceProperties

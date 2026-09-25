@@ -1,6 +1,12 @@
 {
   "cap.reality_value.health.tip.low": "§8[§4!§8] §4You are sick. Please quickly restore your health using items like herbs and bandages.",
   "cap.reality_value.sanity.tip.low": "§8[§4!§8] §4You are on the verge of a mental breakdown, please restore your sanity through activities such as fishing and flower picking as soon as possible",
+  "cap.reality_value.energy.tip.low": "§8[§6!§8] §6You are running low on energy. Restore it by eating food or resting.",
+  "cap.reality_value.immunity.tip.low": "§8[§2!§8] §2Your immunity is low. Restore it with items like golden apples and honey.",
+  "tooltip.reality_value.health": "Health %s",
+  "tooltip.reality_value.immunity": "Immunity %s",
+  "tooltip.reality_value.sanity": "Sanity %s",
+  "tooltip.reality_value.energy": "Energy %s",
   "cap.reality_value.sanity.low.0": "§4So... tired...",
   "cap.reality_value.sanity.low.1": "§4Why! Why does this happen to me",
   "cap.reality_value.sanity.low.2": "§4Everything is meaningless...",
